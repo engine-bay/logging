@@ -9,7 +9,7 @@ namespace EngineBay.Logging
         {
             services.AddLogging(builder =>
             {
-                builder.AddFilter("Microsoft", LogLevel.Information);
+                builder.AddFilter("EngineBay", LogLevel.Information);
                 builder.AddFilter("Microsoft", LogLevel.Warning);
                 builder.AddFilter("System", LogLevel.Error);
                 builder.AddFilter("Microsoft.AspNetCore.Authentication", LogLevel.Debug);
@@ -29,6 +29,7 @@ namespace EngineBay.Logging
 
         public WebApplication AddMiddleware(WebApplication app)
         {
+            app.UseHttpLogging();
             return app;
         }
     }
