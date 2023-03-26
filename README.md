@@ -1,3 +1,3 @@
-# EngineBay.ModuleTemplate
+# EngineBay.Logging
 
-ModuleTemplate module for EngineBay published to [EngineBay.ModuleTemplate](https://www.nuget.org/packages/EngineBay.ModuleTemplate/) on NuGet.
+Logging module for EngineBay published to [EngineBay.Logging](https://www.nuget.org/packages/EngineBay.Logging/) on NuGet.
