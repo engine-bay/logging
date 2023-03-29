@@ -7,15 +7,13 @@ namespace EngineBay.Logging
         /// <inheritdoc/>
         public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
         {
+            var loggingLevel = LoggingConfiguration.GetLoggingLevel();
+            
             services.AddLogging(builder =>
             {
-                builder.AddFilter("EngineBay", LogLevel.Information);
-                builder.AddFilter("Microsoft", LogLevel.Warning);
-                builder.AddFilter("System", LogLevel.Error);
-                builder.AddFilter("Microsoft.AspNetCore.Authentication", LogLevel.Debug);
-
-                // consider making logging providers configurable
-                // https://learn.microsoft.com/en-us/dotnet/core/extensions/console-log-formatter
+                builder.AddFilter("EngineBay", loggingLevel);
+                builder.AddFilter("Microsoft", loggingLevel);
+                builder.AddFilter("System", loggingLevel);
             });
 
             return services;
