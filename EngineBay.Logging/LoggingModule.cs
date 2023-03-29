@@ -8,7 +8,7 @@ namespace EngineBay.Logging
         public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
         {
             var loggingLevel = LoggingConfiguration.GetLoggingLevel();
-            
+
             services.AddLogging(builder =>
             {
                 builder.AddFilter("EngineBay", loggingLevel);
