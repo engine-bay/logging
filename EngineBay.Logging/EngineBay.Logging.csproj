@@ -17,6 +17,7 @@
     <RepositoryType>git</RepositoryType>
     <TargetType>library</TargetType>
     <IsPackable>true</IsPackable>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -27,7 +28,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EngineBay.Core" Version="4.0.0" />
+    <PackageReference Include="EngineBay.Core" Version="4.0.0" Condition="'$(Configuration)'=='Release'"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0"/>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -38,4 +40,8 @@
     <None Include="../README.md" Pack="true" PackagePath="\" />
     <None Include="../LICENSE.txt" Pack="true" PackagePath="" />
 </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\EngineBay.Core\EngineBay.Core.csproj" Condition="'$(Configuration)'=='Debug'" />
+  </ItemGroup>
 </Project>
