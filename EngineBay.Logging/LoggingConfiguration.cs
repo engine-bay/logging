@@ -4,18 +4,18 @@ namespace EngineBay.Logging
 
     public abstract class LoggingConfiguration
     {
-        public static bool IsSensativeDataLoggingEnabled()
+        public static bool IsSensitiveDataLoggingEnabled()
         {
-            var sensativeDataLoggingEnvironmentVariable = Environment.GetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGSENSATIVEDATAENABLED);
+            var sensitiveDataLoggingEnvironmentVariable = Environment.GetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGSENSITIVEDATAENABLED);
 
-            if (string.IsNullOrEmpty(sensativeDataLoggingEnvironmentVariable))
+            if (string.IsNullOrEmpty(sensitiveDataLoggingEnvironmentVariable))
             {
                 return false;
             }
 
-            if (sensativeDataLoggingEnvironmentVariable.Equals("true", StringComparison.OrdinalIgnoreCase))
+            if (sensitiveDataLoggingEnvironmentVariable.Equals("true", StringComparison.OrdinalIgnoreCase))
             {
-                Console.WriteLine($"Warning: {EnvironmentVariableConstants.LOGGINGSENSATIVEDATAENABLED} was set to 'true', PII data may appear in logs depending on the configured {EnvironmentVariableConstants.LOGGINGLEVEL} ");
+                Console.WriteLine($"Warning: {EnvironmentVariableConstants.LOGGINGSENSITIVEDATAENABLED} was set to 'true', PII data may appear in logs depending on the configured {EnvironmentVariableConstants.LOGGINGLEVEL} ");
                 return true;
             }
 
