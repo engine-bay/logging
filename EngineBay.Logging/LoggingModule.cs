@@ -2,10 +2,9 @@ namespace EngineBay.Logging
 {
     using EngineBay.Core;
 
-    public class LoggingModule : IModule
+    public class LoggingModule : BaseModule
     {
-        /// <inheritdoc/>
-        public IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
+        public override IServiceCollection RegisterModule(IServiceCollection services, IConfiguration configuration)
         {
             var loggingLevel = LoggingConfiguration.GetLoggingLevel();
             var noisySystemsLoggingLevel = loggingLevel + 1; // We make noisy systems one level higher in log level so that we can run with Information level logging by default
@@ -22,13 +21,7 @@ namespace EngineBay.Logging
             return services;
         }
 
-        /// <inheritdoc/>
-        public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
-        {
-            return endpoints;
-        }
-
-        public WebApplication AddMiddleware(WebApplication app)
+        public override WebApplication AddMiddleware(WebApplication app)
         {
             app.UseHttpLogging();
             return app;
