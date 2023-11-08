@@ -24,7 +24,7 @@ This module cannot run on its own. You will need to register it in your applicat
 
 ### Environment Variables
 
-See the [Documentation Portal](https://github.com/engine-bay/documentation-portal/blob/main/EngineBay.DocumentationPortal/DocumentationPortal/docs/documentation/configuration/environment-variables.md#api-documentation).
+See the [Documentation Portal](https://github.com/engine-bay/documentation-portal/blob/main/EngineBay.DocumentationPortal/DocumentationPortal/docs/documentation/configuration/environment-variables.md#logging).
 
 ## Dependencies
 
