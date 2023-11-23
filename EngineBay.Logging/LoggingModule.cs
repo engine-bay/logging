@@ -11,6 +11,7 @@ namespace EngineBay.Logging
             var noisySystemsLoggingLevel = loggingLevel + 1; // We make noisy systems one level higher in log level so that we can run with Information level logging by default
 
             services.AddHttpLogging(o => o = new HttpLoggingOptions());
+
             services.AddLogging(builder =>
             {
                 builder.AddFilter("EngineBay", loggingLevel);
