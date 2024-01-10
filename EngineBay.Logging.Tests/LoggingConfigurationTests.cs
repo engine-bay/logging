@@ -8,28 +8,6 @@ namespace EngineBay.Logging.Tests
     public class LoggingConfigurationTests
     {
         [Fact]
-        public void IsSensitiveDataLoggingEnabledEnvironmentVariableFalseShouldReturnFalse()
-        {
-            Environment.SetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGSENSITIVEDATAENABLED, "false");
-            Assert.False(LoggingConfiguration.IsSensitiveDataLoggingEnabled());
-        }
-
-        [Fact]
-        public void IsSensitiveDataLoggingEnabledEnvironmentVariableTrueShouldReturnTrueAndPrintWarning()
-        {
-            Environment.SetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGSENSITIVEDATAENABLED, "true");
-            Assert.True(LoggingConfiguration.IsSensitiveDataLoggingEnabled());
-        }
-
-        [Fact]
-        public void IsSensitiveDataLoggingEnabledEnvironmentVariableTrueWithMultipleLevelsShouldReturnTrueAndPrintWarning()
-        {
-            Environment.SetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGLEVEL, "Debug,Error");
-            Environment.SetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGSENSITIVEDATAENABLED, "true");
-            Assert.True(LoggingConfiguration.IsSensitiveDataLoggingEnabled());
-        }
-
-        [Fact]
         public void GetLoggingLevelEnvironmentVariableDebugShouldReturnDebug()
         {
             Environment.SetEnvironmentVariable(EnvironmentVariableConstants.LOGGINGLEVEL, "Debug");
